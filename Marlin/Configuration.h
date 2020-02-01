@@ -152,6 +152,8 @@
   #define MOTHERBOARD BOARD_GTM32_MINI
 #elif ENABLED (GTM201)
   #define MOTHERBOARD BOARD_GTM32_REV_B
+#elif ENABLED (NEWMODEL) //Replace NEW MODEL with real name
+  #define MOTHERBOARD BOARD_RAMPS_14_EFB   // define new models mainboard
  #endif 
 #endif
 
@@ -546,7 +548,11 @@
     #define  DEFAULT_Kp 17.74
     #define  DEFAULT_Ki 1.90
     #define  DEFAULT_Kd 41.41
-  #else
+  #elif ENABLED (NEWMODEL) // Hotend PID
+    #define  DEFAULT_Kp 1
+    #define  DEFAULT_Ki 1
+    #define  DEFAULT_Kd 1
+  #else // A10 & A20
     #define  DEFAULT_Kp 33.29
     #define  DEFAULT_Ki 3.83
     #define  DEFAULT_Kd 72.28
@@ -602,7 +608,11 @@
     #define  DEFAULT_bedKp 369.610
     #define  DEFAULT_bedKi 54.132
     #define  DEFAULT_bedKd 602.870
-  #else
+  #elif ENABLED (NEWMODEL) // BED PID
+    #define  DEFAULT_bedKp 1
+    #define  DEFAULT_bedKi 1
+    #define  DEFAULT_bedKd 1
+  #else //A10 & A20
     #define  DEFAULT_bedKp 42.96
     #define  DEFAULT_bedKi 8.32 
     #define  DEFAULT_bedKd 147.80
@@ -683,13 +693,17 @@
   #define USE_ZMAX_PLUG
   #define USE_XMIN_PLUG
   #define USE_YMAX_PLUG
-#else
+#elif ENABLED (NEWMODEL)  //Endstops
   #define USE_XMIN_PLUG
   #define USE_YMIN_PLUG
   #define USE_ZMIN_PLUG
-//#define USE_XMAX_PLUG
-//#define USE_YMAX_PLUG
-//#define USE_ZMAX_PLUG
+  //#define USE_XMAX_PLUG
+  //#define USE_YMAX_PLUG
+  //#define USE_ZMAX_PLUG
+#else //A10 & A20 & A30
+  #define USE_XMIN_PLUG
+  #define USE_YMIN_PLUG
+  #define USE_ZMIN_PLUG
 #endif
 
 // Enable pullup for all endstops to prevent a floating state
@@ -735,7 +749,15 @@
   #define Y_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
   #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true // set to true to invert the logic of the probe.
-#else
+#elif ENABLED (NEWMODEL) //Endstop inverting
+#define X_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Y_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define X_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Y_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Z_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING true  // set to true to invert the logic of the probe.
+#else //A10 & A20 & A30
   #define X_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
   #define Y_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
   #define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
@@ -1307,11 +1329,19 @@
   #define INVERT_X_DIR true
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR true
-#elif ENABLED(INVERTXYZ)
+#elif ENABLED(INVERTXYZ) //A10 & A20 &A30 with TMC
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
   #define INVERT_Z_DIR true
-#else
+#elif ENABLED (NEWMODEL) // New model motor direction with a4988 / not TMC
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR false
+#elif ENABLED (NEWMODEL) && ENABLED(INVERTXYZ) // New model motors inverted for TMC
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
+#else //A10 & A20 &A30
   #define INVERT_X_DIR true
   #define INVERT_Y_DIR true
   #define INVERT_Z_DIR false
@@ -1359,7 +1389,11 @@
   #define X_HOME_DIR -1
   #define Y_HOME_DIR 1
   #define Z_HOME_DIR 1
-#else
+#elif ENABLED (NEWMODEL) //Endstop min or max
+  #define X_HOME_DIR -1
+  #define Y_HOME_DIR -1
+  #define Z_HOME_DIR -1
+#else //A10 & A20 & A30
   #define X_HOME_DIR -1
   #define Y_HOME_DIR -1
   #define Z_HOME_DIR -1
@@ -1404,7 +1438,11 @@
   #define X_BED_SIZE 230
   #define Y_BED_SIZE 230
   #define Z_MAX_POS 250
-#else
+#elif ENABLED (NEWMODEL) // Build area XYZ
+  #define X_BED_SIZE 200
+  #define Y_BED_SIZE 200
+  #define Z_MAX_POS  200 
+#else // none defined
   #define X_BED_SIZE 200
   #define Y_BED_SIZE 200
   #define Z_MAX_POS  200  
@@ -2235,7 +2273,13 @@
   #define NEWPANEL
   #define SDSUPPORT
   #define SDIO_SUPPORT
- #else
+ #elif ENABLED (NEWMODEL) // Screen type & SDcard support
+  //#define REPRAP_DISCOUNT_SMART_CONTROLLER
+  //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+  //#define ULTIPANEL
+  //#define NEWPANEL
+  //#define SDSUPPORT
+ #else //A10 
   #define REPRAP_DISCOUNT_SMART_CONTROLLER
   #define ULTIPANEL
   #define NEWPANEL

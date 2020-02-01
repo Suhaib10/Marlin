@@ -33,6 +33,9 @@
 #define MOTHERBOARD BOARD_RAMPS_14_EFB
 #endif
 
+//Framework for adding a new printer to this config
+//#define NEWMODEL // new model
+
 //(Step 2) enable 1 driver timing set
 //#define STOCK      // Enable A4988   on all drivers (stock drivers)
 #define TMC2208    // Enable TMC2208 Standalone on all drivers
