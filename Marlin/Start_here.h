@@ -26,7 +26,6 @@
 //#define GTM201      // M201 - testing
 //#define GTD200      // D200 - testing
 
-//-------------------------------------------------------------------
 //Used to switch the default board of the model selected above
 //#define CUSTOMBOARD // Enable Custom Board
 #if ENABLED (CUSTOMBOARD)
@@ -37,8 +36,16 @@
 //#define NEWMODEL // new model
 
 //(Step 2) enable 1 driver timing set
-//#define STOCK      // Enable A4988   on all drivers (stock drivers)
-#define TMC2208S   // Enable TMC2208 Standalone all drivers
+//#define STOCK      // Enable A4988   all drivers (stock drivers)
+//#define A5984      // Enable A5984   all drivers
+//#define DRV8825    // Enable DRV8825 all drivers
+//#define LV8729     // Enable LV8729  all drivers
+//#define L6470      // Enable L6470   all drivers
+//#define TB6560     // Enable TB6560  all drivers
+//#define TB6600     // Enable TB6600  all drivers
+
+//Trinamic Standalone
+//#define TMC2208S   // Enable TMC2208 Standalone all drivers
 //#define TMC2209S   // Enable TMC2209 Standalone all drivers
 //#define TMC2130S   // Enable TMC2130 Standalone all drivers
 //#define TMC2160S   // Enable TMC2160 Standalone all drivers
@@ -46,6 +53,8 @@
 //#define TMC2660S   // Enable TMC2660 Standalone all drivers
 //#define TMC5130S   // Enable TMC5130 Standalone all drivers
 //#define TMC5160S   // Enable TMC5160 Standalone all drivers
+
+//Trinamic Uart/Spi
 //#define TMC2208U   // Enable TMC2208 UART/SPI all drivers
 //#define TMC2209U   // Enable TMC2209 UART/SPI all drivers
 //#define TMC2130U   // Enable TMC2130 UART/SPI all drivers
@@ -54,14 +63,8 @@
 //#define TMC2660U   // Enable TMC2660 UART/SPI all drivers
 //#define TMC5130U   // Enable TMC5130 UART/SPI all drivers
 //#define TMC5160U   // Enable TMC5160 UART/SPI all drivers
-//#define A5984      // Enable A5984   all drivers
-//#define DRV8825    // Enable DRV8825 all drivers
-//#define LV8729     // Enable LV8729  all drivers
-//#define L6470      // Enable L6470   all drivers
-//#define TB6560     // Enable TB6560  all drivers
-//#define TB6600     // Enable TB6600  all drivers
 
-//-------------------------------------------------------------------
+//Custome Driver Set
 //#define CUSTOMDRIVERS     // Define Custom drivers
 #if ENABLED (CUSTOMDRIVERS)
    //Driver selection
@@ -88,7 +91,6 @@
 #define TOUCHPROBE  // Enable Touch Type Probe (Bltouch / 3Dtouch)
 //#define FMP         // Enable Fixed Mounted Type Probe (Capacitive / Inductive)
 
-//-------------------------------------------------------------------
 //UBL Options
 //#define BEDCLIPS    // Enable to avoid bed clips (manual or probe)
 

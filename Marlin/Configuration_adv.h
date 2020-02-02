@@ -2257,7 +2257,11 @@
    * Define you own with
    * { <off_time[1..15]>, <hysteresis_end[-3..12]>, hysteresis_start[1..8] }
    */
+  #if ANY(GTA10, GTA20, MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
+  #define CHOPPER_TIMING CHOPPER_DEFAULT_24V
+  #else 
   #define CHOPPER_TIMING CHOPPER_DEFAULT_12V
+  #endif
 
   /**
    * Monitor Trinamic drivers for error conditions,
