@@ -11,9 +11,9 @@
 
 //(Step 1) enable 1 base model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-#define GTA10       // A10 & Variants - tested 
-//#define GTA20       // A20 & Variants - tested 
-//#define MECREATOR2  // Mecreator2     - tested 
+#define GTA10       // A10 & Variants
+//#define GTA20       // A20 & Variants
+//#define MECREATOR2  // Mecreator2     
 //#define I3PROA      // PI3A Pro       - testing
 //#define I3PROB      // I3PROB         - testing
 //#define I3PROC      // I3PROC         - testing
@@ -21,8 +21,8 @@
 //#define I3PROX      // I3PROX         - testing
 
 //GTM32 Boards - vscode: default_envs = STM32F103VE_GTM32 in platformio.ini
-//#define GTA30       // A30  - tested 
-//#define GTE180      // E180 - tested 
+//#define GTA30       // A30
+//#define GTE180      // E180
 //#define GTM201      // M201 - testing
 //#define GTD200      // D200 - testing
 
@@ -38,14 +38,22 @@
 
 //(Step 2) enable 1 driver timing set
 //#define STOCK      // Enable A4988   on all drivers (stock drivers)
-#define TMC2208    // Enable TMC2208 Standalone on all drivers
-//#define TMC2209    // Enable TMC2209 Standalone all drivers
-//#define TMC2130    // Enable TMC2130 Standalone all drivers
-//#define TMC2160    // Enable TMC2160 Standalone all drivers
-//#define TMC26X     // Enable TMC226X Standalone all drivers
-//#define TMC2660    // Enable TMC2660 Standalone all drivers
-//#define TMC5130    // Enable TMC5130 Standalone all drivers
-//#define TMC5160    // Enable TMC5160 Standalone all drivers
+#define TMC2208S   // Enable TMC2208 Standalone all drivers
+//#define TMC2209S   // Enable TMC2209 Standalone all drivers
+//#define TMC2130S   // Enable TMC2130 Standalone all drivers
+//#define TMC2160S   // Enable TMC2160 Standalone all drivers
+//#define TMC26XS    // Enable TMC226X Standalone all drivers
+//#define TMC2660S   // Enable TMC2660 Standalone all drivers
+//#define TMC5130S   // Enable TMC5130 Standalone all drivers
+//#define TMC5160S   // Enable TMC5160 Standalone all drivers
+//#define TMC2208U   // Enable TMC2208 UART/SPI all drivers
+//#define TMC2209U   // Enable TMC2209 UART/SPI all drivers
+//#define TMC2130U   // Enable TMC2130 UART/SPI all drivers
+//#define TMC2160U   // Enable TMC2160 UART/SPI all drivers
+//#define TMC26XU    // Enable TMC226X UART/SPI all drivers
+//#define TMC2660U   // Enable TMC2660 UART/SPI all drivers
+//#define TMC5130U   // Enable TMC5130 UART/SPI all drivers
+//#define TMC5160U   // Enable TMC5160 UART/SPI all drivers
 //#define A5984      // Enable A5984   all drivers
 //#define DRV8825    // Enable DRV8825 all drivers
 //#define LV8729     // Enable LV8729  all drivers
@@ -68,13 +76,13 @@
   #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
 #endif
 
-//(Step 3) enable 1 if you have mixing or multi extruder (C D M T variants)
-//#define MIX      // Enable Mixing    2 in 1 - 1 Virtual Stepper Control 
-//#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Steppers Control
-//#define DUALEX   // 2 Extruders      2 in 2 - Physical Steppers Control 
-//#define MIXT     // Enable Mixing    3 in 1 - 1 Virtual Stepper Control
-//#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Steppers Control
-//#define TRIEX    // 3 Extruders      3 in 3 - Physical Steppers Control 
+//(Step 3) enable 1 if you have mixing or multi extruder
+//#define MIX      // Enable Mixing    2 in 1 - 1 Virtual Stepper (M)
+//#define CYCLOPS  // Enable Cyclops   2 in 1 - #Physical Stepper (C) 
+//#define DUALEX   // 2 Extruders      2 in 2 - #Physical Stepper (D) 
+//#define MIXT     // Enable Mixing    3 in 1 - 1 Virtual Stepper (T)
+//#define CYCLOPST // Enable Cyclops   3 in 1 - #Physical Stepper (CT)
+//#define TRIEX    // 3 Extruders      3 in 3 - #Physical Stepper (3E)
  
 //(Step 4) enable 1 probe type or none for manual (stock)
 #define TOUCHPROBE  // Enable Touch Type Probe (Bltouch / 3Dtouch)
@@ -93,7 +101,7 @@
   #define MULTIEXTRUDER 
 #endif
 
-#if ANY(TMC2208, TMC2209, TMC2130, TMC2160, TMC26X, TMC2660, TMC5130, TMC5160)
+#if ANY(TMC2208S, TMC2209S, TMC2130S, TMC2160S, TMC26XS, TMC2660S, TMC5130S, TMC5160S) || ANY(TMC2208U, TMC2209U, TMC2130U, TMC2160U, TMC26XU, TMC2660U, TMC5130U, TMC5160U)
   #define TMCCHIPS
 #endif
 
