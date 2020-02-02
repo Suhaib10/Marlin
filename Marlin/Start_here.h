@@ -29,7 +29,7 @@
 //Used to switch the default board of the model selected above
 //#define CUSTOMBOARD // Enable Custom Board
 #if ENABLED (CUSTOMBOARD)
-#define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_RAMPS_14_EFB
 #endif
 
 //Framework for adding a new printer to this config
@@ -112,11 +112,11 @@
 #endif
 
 #if ANY(GTA30, GTE180, GTM201, GTD200)
-#define GTM32
+  #define GTM32
 #endif
 
  #if ANY(GTA10, GTA20, MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
- #define GT2560
+   #define GT2560
  #endif
 
 //Bed clip logic - use mesh inset or min probe edge to avoid clips not both
