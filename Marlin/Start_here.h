@@ -95,6 +95,8 @@
 //#define BEDCLIPS       // Enable to avoid bed clips (manual or probe)
 //#define PROBE3X        // Probe 3X take the average for greater accuracy
 //#define HEATERACCURACY // Disable heaters while probing for greater accuracy
+//#define HALFSPEED      // Reduce probing speed by 50%
+//#define QUARTERSPEED   // Reduce probing speed by 75%
 
 //----------------------------------//
 //logic used to reduce setup steps. //

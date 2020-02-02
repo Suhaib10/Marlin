@@ -1293,7 +1293,13 @@
 #define Z_PROBE_SPEED_FAST Z_PROBE_SPEED_SLOW
 
 // Feedrate (mm/m) for the "accurate" probe of each point
-#define Z_PROBE_SPEED_SLOW HOMING_FEEDRATE_Z  // Probe speed reduce/raise if accuracy is poor
+#if ENABLED (QUARTERSPEED)
+  #define Z_PROBE_SPEED_SLOW (HOMING_FEEDRATE_Z /4)  // Probe speed reduce/raise if accuracy is poor
+#elif ENABLED (HALFSPEED)
+  #define Z_PROBE_SPEED_SLOW (HOMING_FEEDRATE_Z /2)  // Probe speed reduce/raise if accuracy is poor
+#else
+  #define Z_PROBE_SPEED_SLOW HOMING_FEEDRATE_Z  // Probe speed reduce/raise if accuracy is poor
+#endif
 
 /**
  * Multiple Probing
@@ -1524,9 +1530,9 @@
   #define Y_BED_SIZE 200
   #define Z_MAX_POS  200 
 #else // none defined
-  #define X_BED_SIZE 200
-  #define Y_BED_SIZE 200
-  #define Z_MAX_POS  200  
+  #define X_BED_SIZE 100
+  #define Y_BED_SIZE 100
+  #define Z_MAX_POS  100  
 #endif
 
 #define Z_MIN_POS 0
