@@ -330,7 +330,7 @@
  */
 #if ENABLED (MIX) || ENABLED (MIXT) 
   #define MIXING_EXTRUDER 
-  #define MIXING_VIRTUAL_TOOLS 16  // Use the Virtual Tool method with M163 and M164
+  #define MIXING_VIRTUAL_TOOLS 8   // Use the Virtual Tool method with M163 and M164
   #define DIRECT_MIXING_IN_G1      // Allow ABCDHI mix factors in G1 movement commands
   #define GRADIENT_MIX             // Support for gradient mixing with M166 and LCD
   #define GRADIENT_VTOOL           // Add M166 T to use a V-tool index as a Gradient alias
@@ -1207,10 +1207,10 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#if ENABLED (TOUCHPROBE) && DISABLED (GTM32)
+#if ENABLED (TOUCHPROBE)
   #define BLTOUCH
   #define Z_MIN_PROBE_REPEATABILITY_TEST
-#elif ENABLED (FMP) && DISABLED (GTM32)
+#elif ENABLED (FMP)
   #define FIX_MOUNTED_PROBE
   #define Z_MIN_PROBE_REPEATABILITY_TEST
 #else
@@ -1576,7 +1576,7 @@
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  * By default the firmware assumes HIGH=FILAMENT PRESENT.
  */
-#if ENABLED (GTA10) || ENABLED (GTA20)
+#if ENABLED (RUNOUT)
   #define FILAMENT_RUNOUT_SENSOR 
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
    #if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
@@ -1734,7 +1734,7 @@
  #if ENABLED (GTA20)
   #define MESH_EDIT_GFX_OVERLAY                 // Display a graphics overlay while editing the mesh
  #endif
-  //#define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
+  //#define MESH_INSET 10                       // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X GRIDSIZE            // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define UBL_MESH_EDIT_MOVES_Z                 // Sophisticated users prefer no movement of nozzle
@@ -1782,7 +1782,7 @@
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-//#define Z_PROBE_END_SCRIPT "G27"
+#define Z_PROBE_END_SCRIPT "G28XY"
 
 
 // @section homing
@@ -2340,7 +2340,6 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-//#define NOSCREEN            // Disable screen
 #if DISABLED (NOSCREEN)
   #if ENABLED (GTA20)
     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
@@ -2349,12 +2348,12 @@
     #define ST7920_DELAY_3 DELAY_NS(200)
     #define ULTIPANEL
     #define NEWPANEL
-    #define SDSUPPORT
+    #if ENABLED (SDCARD)
+      #define SDSUPPORT
+    #endif
 #elif ENABLED (GTM32)
     #if ENABLED (M201)
       #define REPRAP_DISCOUNT_SMART_CONTROLLER
-    #endif
-    #if ENABLED (REPRAP_DISCOUNT_SMART_CONTROLLER)
       #define ULTIPANEL
     #endif
   #define NEWPANEL
@@ -2365,12 +2364,16 @@
   //#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
   //#define ULTIPANEL
   //#define NEWPANEL
-  //#define SDSUPPORT
+  #if ENABLED (SDCARD)
+    //#define SDSUPPORT
+  #endif
  #else //A10 
   #define REPRAP_DISCOUNT_SMART_CONTROLLER
   #define ULTIPANEL
   #define NEWPANEL
-  #define SDSUPPORT
+  #if ENABLED (SDCARD)
+    #define SDSUPPORT
+  #endif
 #endif
 #endif
 //

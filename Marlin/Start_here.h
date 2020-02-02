@@ -95,8 +95,13 @@
 //#define BEDCLIPS       // Enable to avoid bed clips (manual or probe)
 //#define PROBE3X        // Probe 3X take the average for greater accuracy
 //#define HEATERACCURACY // Disable heaters while probing for greater accuracy
-//#define HALFSPEED      // Reduce probing speed by 50%
-//#define QUARTERSPEED   // Reduce probing speed by 75%
+//#define HALFSPEED      // Reduce probing speed by 50% = 120
+//#define QUARTERSPEED   // Reduce probing speed by 75% = 60
+
+//Optional features
+//#define SDCARD     // Enable Sdcard slot and features that depend on it GT2560 only
+//#define RUNOUT     // Enable filament runout sensor
+//#define NOSCREEN   // Disable screen
 
 //----------------------------------//
 //logic used to reduce setup steps. //
