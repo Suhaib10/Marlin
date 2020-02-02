@@ -115,6 +115,10 @@
 #define GTM32
 #endif
 
+ #if ANY(GTA10, GTA20, MECREATOR2, I3PROA, I3PROB, I3PROC, I3PROW, I3PROX)
+ #define GT2560
+ #endif
+
 //Bed clip logic - use mesh inset or min probe edge to avoid clips not both
 #if ENABLED (BEDCLIPS)
   #define MESH_INSET 10   // Move mesh in #mm from edge
