@@ -92,7 +92,9 @@
 //#define FMP         // Enable Fixed Mounted Type Probe (Capacitive / Inductive)
 
 //UBL Options
-//#define BEDCLIPS    // Enable to avoid bed clips (manual or probe)
+//#define BEDCLIPS       // Enable to avoid bed clips (manual or probe)
+//#define PROBE3X        // Probe 3X take the average for greater accuracy
+//#define HEATERACCURACY // Disable heaters while probing for greater accuracy
 
 //----------------------------------//
 //logic used to reduce setup steps. //
