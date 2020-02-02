@@ -45,7 +45,7 @@
 //#define TB6600     // Enable TB6600  all drivers
 
 //Trinamic Standalone
-//#define TMC2208S   // Enable TMC2208 Standalone all drivers
+#define TMC2208S   // Enable TMC2208 Standalone all drivers
 //#define TMC2209S   // Enable TMC2209 Standalone all drivers
 //#define TMC2130S   // Enable TMC2130 Standalone all drivers
 //#define TMC2160S   // Enable TMC2160 Standalone all drivers

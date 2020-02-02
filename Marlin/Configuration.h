@@ -105,11 +105,13 @@
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #if ENABLED (GTM32)
-#define SERIAL_PORT 1
-#define SERIAL_PORT_2 2
+  #define SERIAL_PORT 1
+  //#define SERIAL_PORT_2 2
+#elif ENABLED (GT2560)
+  #define SERIAL_PORT 0
+  //#define SERIAL_PORT_2 3
 #else
-#define SERIAL_PORT 0
-#define SERIAL_PORT_2 3
+  #define SERIAL_PORT 0
 #endif
 
 /**
