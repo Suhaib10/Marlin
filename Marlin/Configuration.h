@@ -109,6 +109,7 @@
 #define SERIAL_PORT_2 2
 #else
 #define SERIAL_PORT 0
+#define SERIAL_PORT_2 3
 #endif
 
 /**
