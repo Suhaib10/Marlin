@@ -45,7 +45,7 @@
 //#define TB6600     // Enable TB6600  all drivers
 
 //Trinamic Standalone
-#define TMC2208S   // Enable TMC2208 Standalone all drivers
+//#define TMC2208S   // Enable TMC2208 Standalone all drivers
 //#define TMC2209S   // Enable TMC2209 Standalone all drivers
 //#define TMC2130S   // Enable TMC2130 Standalone all drivers
 //#define TMC2160S   // Enable TMC2160 Standalone all drivers
@@ -70,17 +70,17 @@
    //Driver selection
    #define X_DRIVER_TYPE  TMC2208_STANDALONE
    #define Y_DRIVER_TYPE  TMC2208_STANDALONE
-   #define Z_DRIVER_TYPE  TMC2208_STANDALONE
+   #define Z_DRIVER_TYPE  A4988
    #define E0_DRIVER_TYPE A4988
    #define E1_DRIVER_TYPE A4988
    #define E2_DRIVER_TYPE A4988
    //Stepper inverting
-    //#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
-  #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
+   #define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
+   #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
 #endif
 
 //(Step 3) enable 1 if you have mixing or multi extruder
-//#define MIX      // Enable Mixing    2 in 1 - 1 Virtual Stepper (M)
+#define MIX      // Enable Mixing    2 in 1 - 1 Virtual Stepper (M)
 //#define CYCLOPS  // Enable Cyclops   2 in 1 - #Physical Stepper (C) 
 //#define DUALEX   // 2 Extruders      2 in 2 - #Physical Stepper (D) 
 //#define MIXT     // Enable Mixing    3 in 1 - 1 Virtual Stepper (T)
@@ -88,7 +88,7 @@
 //#define TRIEX    // 3 Extruders      3 in 3 - #Physical Stepper (3E)
  
 //(Step 4) enable 1 probe type or none for manual (stock)
-#define TOUCHPROBE  // Enable Touch Type Probe (Bltouch / 3Dtouch)
+//#define TOUCHPROBE  // Enable Touch Type Probe (Bltouch / 3Dtouch)
 //#define FMP         // Enable Fixed Mounted Type Probe (Capacitive / Inductive)
 
 //UBL Options
@@ -99,8 +99,8 @@
 //#define QUARTERSPEED   // Reduce probing speed by 75% = 60
 
 //Optional features
-//#define SDCARD     // Enable Sdcard slot and features that depend on it GT2560 only
-//#define RUNOUT     // Enable filament runout sensor
+#define SDCARD     // Enable Sdcard slot and features that depend on it GT2560 only
+#define RUNOUT     // Enable filament runout sensor
 //#define NOSCREEN   // Disable screen
 
 //----------------------------------//
